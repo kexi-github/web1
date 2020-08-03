@@ -16,7 +16,7 @@ func main() {
 }
 
 func doRequest(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()       //解析url传递的参数，对于POST则解析响应包的主体（request body）
+	r.ParseForm() //解析url传递的参数，对于POST则解析响应包的主体（request body）
 	//fmt.Println(r.Form) //这些信息是输出到服务器端的打印信息
 	//fmt.Println("path", r.URL.Path)
 	//fmt.Println("scheme", r.URL.Scheme)
@@ -34,5 +34,7 @@ func doRequest(w http.ResponseWriter, r *http.Request) {
 	} else if r.Method == "POST" {
 		uid = r.PostFormValue("uid")
 	}
+
+	fmt.Println("xyz")
 	io.WriteString(w, "uid = "+uid)
 }
